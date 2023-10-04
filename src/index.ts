@@ -8,6 +8,7 @@ import { ApiExercises } from "./api/exercise";
 import { ApiReport } from "./api/report";
 import { ApiSession } from "./api/session";
 import { MongoConnect } from "./db";
+import { seed } from "./db/seed";
 import { RequestAuth } from "./middlewares/auth";
 
 // types
@@ -77,4 +78,5 @@ const args = process.argv.slice(2);
   app.listen(port, () => {
     console.log(`🚀 Server ready at http://localhost:${port}`);
   });
+  seed();
 })();
