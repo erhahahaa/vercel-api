@@ -32,10 +32,10 @@ const args = process.argv.slice(2);
   // listen services
   await MongoConnect(process.env.MONGO_URL || "", {
     // auth: {
-    //   username: process.env.MONGO_USER || '',
-    //   password: process.env.MONGO_PASSWORD || '',
+    //   username: process.env.MONGO_USER || "",
+    //   password: process.env.MONGO_PASSWORD || "",
     // },
-    // dbName: process.env.MONGO_DB_NAME || '',
+    // dbName: process.env.MONGO_DB_NAME || "",
   });
   console.log("📚 connected to mongodb");
 
@@ -77,6 +77,7 @@ const args = process.argv.slice(2);
   const port = parseInt(process.env.PORT || "3000") || 3000;
   app.listen(port, () => {
     console.log(`🚀 Server ready at http://localhost:${port}`);
+    console.log(`🚀 MongoDB : ${process.env.MONGO_URL}`);
   });
-  await seed();
+  seed();
 })();
